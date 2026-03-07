@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="shortcut icon" href="imagens/quick.svg" type="image/x-icon">
+
+</head>
+
+
+<body>
+    <div id="alerta" class="alerta"></div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="imagens/logo.svg" alt="">
+            </div>
+            <div>
+                <span>
+                    <img src="imagens/arrow.svg" alt="">
+                </span>
+                <h1>
+                    Compras da semana
+                </h1>
+            </div>
+        </header>
+        <main>
+            <form>
+                <div class="input-wrapper">
+                    <input id="novo-item" name="novo-item" type="text" placeholder="Adicione um novo item" required>
+
+                    <button class="add-button">
+                        Adicionar item
+                    </button>
+                </div>
+
+                <div class="element-list">
+                    <div class="element">
+                        <div>
+                            <input id="suco" name="item" value="suco" type="checkbox">
+                            <label for="suco">Suco de laranja</label>
+                        </div>
+
+                        <span>
+                            <img src="imagens/lixeira.svg" alt="">
+                        </span>
+                    </div>
+
+                    <div class="element">
+                        <div>
+                            <input id="pao" name="item" value="pao" type="checkbox">
+                            <label for="pao">Pão de forma</label>
+                        </div>
+
+                        <span>
+                            <img src="imagens/lixeira.svg" alt="">
+                        </span>
+                    </div>
+
+                    <div class="element">
+                        <div>
+                            <input id="cafe" name="item" value="cafe" type="checkbox">
+                            <label for="cafe">Café preto</label>
+                        </div>
+
+                        <span>
+                            <img src="imagens/lixeira.svg" alt="">
+                        </span>
+                    </div>
+
+                    <div class="element">
+                        <div>
+                            <input id="biscoito" name="item" value="biscoito" type="checkbox">
+                            <label for="biscoito">Biscoito</label>
+                        </div>
+
+                        <span>
+                            <img src="imagens/lixeira.svg" alt="">
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
