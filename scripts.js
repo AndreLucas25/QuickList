@@ -3,31 +3,52 @@ const button = document.querySelector(".add-button")
 const elementList = document.querySelector(".element-list")
 const alerta = document.querySelector("#alerta")
 
-button.addEventListener("click", (event) => {
-  event.preventDefault()
+let items = JSON.parse(localStorage.getItem("items")) || []
 
-  if (input.value === ""){
-    alert("Digite algo")
-    return
-  }
+// função para salvar no localStorage
+function salvarItems(){
+  localStorage.setItem("items", JSON.stringify(items))
+}
 
-  const item = input.value.trim()
-
-
+// função para criar item na tela
+function criarItem(item){
   const element = document.createElement("div")
   element.classList.add("element")
+
   element.innerHTML = `
     <div>
       <input type="checkbox" id="${item}" name="item">
       <label for="${item}">${item}</label>
     </div>
 
-      <span>
-        <img src="imagens/lixeira.svg" alt="">
-      </span>
-  `;
+    <span>
+      <img src="imagens/lixeira.svg" alt="">
+    </span>
+  `
 
   elementList.append(element)
+}
+
+// mostrar itens salvos quando a página abrir
+items.forEach((item) => {
+  criarItem(item)
+})
+
+button.addEventListener("click", (event) => {
+  event.preventDefault()
+
+  if (input.value.trim() === ""){
+    alert("Digite algo")
+    return
+  }
+
+  const item = input.value.trim()
+
+  criarItem(item)
+
+  items.push(item)
+
+  salvarItems()
 
   input.value = ""
 })
@@ -43,7 +64,16 @@ function mostrarAlerta(mensagem){
 
 elementList.addEventListener("click", (event) => {
   if (event.target.tagName === "IMG"){
-      event.target.closest(".element").remove()
+
+      const element = event.target.closest(".element")
+
+      const texto = element.querySelector("label").textContent
+
+      items = items.filter((i) => i !== texto)
+
+      salvarItems()
+
+      element.remove()
 
       mostrarAlerta("O item foi removido da lista")
   }
