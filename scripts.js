@@ -64,6 +64,8 @@ btnLimpar.addEventListener("click", () => {
   salvarItems()
 
   elementList.innerHTML = ""
+  ativarBtnLimpar()
+  
   mostrarAlerta("Lista Limpa")
 })
 
