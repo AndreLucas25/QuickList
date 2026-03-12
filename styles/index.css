@@ -127,6 +127,8 @@ main {
             display: flex;
             flex-direction: column;
             gap: .75rem;
+            height: 10rem;
+            overflow-y: auto;
 
             .element {
                 display: flex;
@@ -160,6 +162,45 @@ main {
                     }
                 }
             }
+        }
+
+        .element-list::-webkit-scrollbar{
+                width: .25rem;
+            }
+        .element-list::-webkit-scrollbar-track{
+                background: transparent;
+            }
+        .element-list::-webkit-scrollbar-thumb{
+                background: #CA3884;
+                border-radius: .5rem;
+            }
+        .element-list::-webkit-scrollbar-thumb:hover{
+                background: #A52C6B;
+            }
+
+    }
+
+    .btnLimpar {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem
+    }
+
+    .btnChild {
+        background-color: #CA3884;
+        color: #FFFFFF;
+
+        cursor: pointer;
+
+        border-radius: .5rem;
+        border: none;
+        outline: 0;
+
+        padding: .5rem;
+        width: 5rem;
+
+        &:hover {
+            background-color: #A52C6B;
         }
     }
 }
@@ -199,4 +240,8 @@ main {
             }
         }
     }
+}
+
+.btnOff{
+    display: none;
 }
